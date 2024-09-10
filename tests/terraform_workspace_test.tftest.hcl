@@ -20,7 +20,7 @@ run "vcs_provider_type" {
 # Check that the vcs provider type is as expected
     command = plan
     assert {
-        condition = tfe_oauth_client.client.service_provider == "bitbucket_hosted"
+        condition = data.tfe_oauth_client.client.service_provider == "bitbucket_hosted"
         error_message = "Service Provider type is not bitbucket_hosted"
     }
 }
