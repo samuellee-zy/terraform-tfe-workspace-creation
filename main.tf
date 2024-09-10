@@ -10,6 +10,11 @@ data "tfe_organization" "tfc_org" {
   name = var.tfc_organisation
 }
 
+data "tfe_organization_run_task" "snyk" {
+  name         = "Snyk"
+  organization = var.tfc_organisation
+}
+
 data "tfe_oauth_client" "client" {
   organization     = var.tfc_organisation
   service_provider = var.vcs_provider_type
@@ -32,4 +37,11 @@ resource "tfe_workspace" "tfc-demo" {
     identifier     = var.repository_identifier
     oauth_token_id = data.tfe_oauth_client.client.oauth_token_id
   }
+}
+
+resource "tfe_workspace_run_task" "example" {
+  workspace_id      = tfe_workspace.tfc-demo.id
+  task_id           = data.tfe_organization_run_task.snyk.id
+  enforcement_level = "advisory"
+  stages            = ["pre_plan"]
 }
