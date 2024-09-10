@@ -21,10 +21,12 @@ data "tfe_project" "Demos" {
 }
 
 resource "tfe_workspace" "tfc-demo" {
-  name         = var.tfc_workspace_name
-  organization = data.tfe_organization.tfc_org.name
-  tag_names    = ["tfe_provider", "${var.vcs_provider_type}"]
-  project_id   = data.tfe_project.Demos.id
+  name                           = var.tfc_workspace_name
+  organization                   = data.tfe_organization.tfc_org.name
+  tag_names                      = ["tfe_provider", "${var.vcs_provider_type}"]
+  project_id                     = data.tfe_project.Demos.id
+  assessments_enabled            = true
+  auto_destroy_activity_duration = "10m"
   vcs_repo {
     branch         = "master"
     identifier     = var.repository_identifier
