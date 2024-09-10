@@ -4,6 +4,7 @@ variables {
     tfc_workspace_name = "tfc-demo-env"
     vcs_provider_type = "bitbucket_hosted"
     repository_identifier = "samuellee-dev-personal/workspace"
+    tfc_project_name = "Demos"
 }
 
   # Set up the test by applying the configuration
