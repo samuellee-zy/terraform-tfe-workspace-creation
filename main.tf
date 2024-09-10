@@ -16,7 +16,7 @@ data "tfe_oauth_client" "client" {
 }
 
 data "tfe_project" "Demos" {
-  name         = "Demos"
+  name         = var.tfc_project_name
   organization = var.tfc_organisation
 }
 

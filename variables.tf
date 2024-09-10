@@ -18,3 +18,8 @@ variable "repository_identifier" {
   description = "Address of the repository to attach to workspace"
   type        = string
 }
+
+variable "tfc_project_name" {
+  description = "Name of TFC project"
+  type        = string
+}
