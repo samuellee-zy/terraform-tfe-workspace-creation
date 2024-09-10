@@ -26,7 +26,7 @@ resource "tfe_workspace" "tfc-demo" {
   tag_names                      = ["tfe_provider", "${var.vcs_provider_type}"]
   project_id                     = data.tfe_project.Demos.id
   assessments_enabled            = true
-  auto_destroy_activity_duration = "10m"
+  auto_destroy_activity_duration = "15m"
   vcs_repo {
     branch         = "master"
     identifier     = var.repository_identifier
