@@ -15,6 +15,11 @@ data "tfe_organization_run_task" "snyk" {
   organization = var.tfc_organisation
 }
 
+data "tfe_organization_run_task" "infracost" {
+  name         = "Infracost"
+  organization = var.tfc_organisation
+}
+
 data "tfe_oauth_client" "client" {
   organization     = var.tfc_organisation
   service_provider = var.vcs_provider_type
@@ -39,9 +44,16 @@ resource "tfe_workspace" "tfc-demo" {
   }
 }
 
-resource "tfe_workspace_run_task" "example" {
+resource "tfe_workspace_run_task" "snyk" {
   workspace_id      = tfe_workspace.tfc-demo.id
   task_id           = data.tfe_organization_run_task.snyk.id
+  enforcement_level = "advisory"
+  stages            = ["pre_plan"]
+}
+
+resource "tfe_workspace_run_task" "infracost" {
+  workspace_id      = tfe_workspace.tfc-demo.id
+  task_id           = data.tfe_organization_run_task.infracost.id
   enforcement_level = "advisory"
   stages            = ["pre_plan"]
 }

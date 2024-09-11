@@ -20,9 +20,11 @@ No modules.
 | Name | Type |
 |------|------|
 | [tfe_workspace.tfc-demo](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace) | resource |
-| [tfe_workspace_run_task.example](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace_run_task) | resource |
+| [tfe_workspace_run_task.infracost](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace_run_task) | resource |
+| [tfe_workspace_run_task.snyk](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace_run_task) | resource |
 | [tfe_oauth_client.client](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/oauth_client) | data source |
 | [tfe_organization.tfc_org](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/organization) | data source |
+| [tfe_organization_run_task.infracost](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/organization_run_task) | data source |
 | [tfe_organization_run_task.snyk](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/organization_run_task) | data source |
 | [tfe_project.Demos](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/project) | data source |
 
