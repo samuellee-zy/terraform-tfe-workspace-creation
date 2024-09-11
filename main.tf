@@ -48,12 +48,12 @@ resource "tfe_workspace_run_task" "snyk" {
   workspace_id      = tfe_workspace.tfc-demo.id
   task_id           = data.tfe_organization_run_task.snyk.id
   enforcement_level = "advisory"
-  stages            = ["pre_plan"]
+  stages            = ["post_plan"]
 }
 
 resource "tfe_workspace_run_task" "infracost" {
   workspace_id      = tfe_workspace.tfc-demo.id
   task_id           = data.tfe_organization_run_task.infracost.id
   enforcement_level = "advisory"
-  stages            = ["pre_plan"]
+  stages            = ["post_plan"]
 }
